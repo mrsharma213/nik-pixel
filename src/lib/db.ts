@@ -25,6 +25,7 @@ export async function initTables() {
       session_id TEXT,
       visitor_id TEXT,
       url TEXT,
+      page_title TEXT,
       referrer TEXT,
       utm_source TEXT,
       utm_medium TEXT,

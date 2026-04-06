@@ -20,7 +20,7 @@ export default function HomePage() {
             featureList: [
               'Page view tracking', 'Session tracking', 'UTM parameter capture',
               'Scroll depth tracking', 'Click tracking', 'Conversion tracking',
-              'Custom events API', 'Bounce detection', 'Return visitor detection',
+              'Custom events API', 'Engagement detection', 'Return visitor detection',
             ],
           }),
         }}
@@ -44,12 +44,12 @@ export default function HomePage() {
         {/* Hero */}
         <section className="pt-24 pb-16">
           <h1 className="text-[56px] md:text-[72px] font-bold leading-[0.9] tracking-[-3.5px] text-white mb-6">
-            Nik Sharma<br />Analytics Pixel
+            Analytics Pixel<br />for Growth Teams
           </h1>
           <p className="text-[18px] text-[#a6a6a6] leading-relaxed max-w-[540px] tracking-[-0.01px]">
             Lightweight, privacy-conscious analytics for any website. Track page views,
             conversions, scroll depth, and user behavior with a single script tag.
-            Under 5KB. Zero dependencies.
+            Under 3KB. Zero dependencies.
           </p>
         </section>
 
@@ -69,7 +69,7 @@ export default function HomePage() {
             </code>
             <p className="mt-4 text-[15px] text-[#a6a6a6] leading-relaxed">
               Place this tag just before the closing <code className="text-white font-mono text-[13px]">&lt;/body&gt;</code> tag on every page you want to track.
-              Replace <code className="text-[#fbbf24] font-mono text-[13px]">YOUR_SITE_ID</code> with the ID provided after site approval.
+              Replace <code className="text-[#fbbf24] font-mono text-[13px]">YOUR_SITE_ID</code> with the ID shown in your dashboard after site approval.
             </p>
           </div>
 
@@ -107,15 +107,15 @@ window.nk('conversion', {
           <h2 className="text-[32px] font-semibold tracking-[-1px] text-white mb-8">What it tracks</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { title: 'Page Views', desc: 'URL, referrer, title — every visit captured' },
-              { title: 'Sessions', desc: 'Anonymous visitor IDs, session management' },
+              { title: 'Page Views', desc: 'URL, referrer, page title captured on every visit' },
+              { title: 'Sessions', desc: 'Anonymous visitor IDs with 30-min timeout rotation' },
               { title: 'UTM Parameters', desc: 'Source, medium, campaign, term, content' },
               { title: 'Scroll Depth', desc: '25%, 50%, 75%, 100% thresholds tracked' },
               { title: 'Time on Page', desc: 'Heartbeat every 5 seconds for accuracy' },
               { title: 'Click Tracking', desc: 'Outbound links and data-nk-track CTAs' },
-              { title: 'Conversions', desc: 'Revenue, currency, order ID — the money data' },
+              { title: 'Conversions', desc: 'Revenue, currency, order ID for attribution' },
               { title: 'Device Info', desc: 'Type, browser, OS, screen resolution' },
-              { title: 'Bounce Detection', desc: 'Know who left without engaging' },
+              { title: 'Engagement Detection', desc: 'Server-side session analysis for bounce rate' },
               { title: 'Return Visitors', desc: 'New vs returning, automatically detected' },
             ].map((f) => (
               <div key={f.title} className="bg-[#0a0a0a] border border-white/5 rounded-xl p-5">
@@ -131,10 +131,9 @@ window.nk('conversion', {
           <h2 className="text-[32px] font-semibold tracking-[-1px] text-white mb-8">API Endpoints</h2>
           <div className="space-y-4">
             {[
-              { method: 'GET', path: '/api/pixel.js', desc: 'Serves the tracking script' },
-              { method: 'POST', path: '/api/events', desc: 'Receives tracking events' },
+              { method: 'GET', path: '/pixel.js', desc: 'Serves the tracking script' },
+              { method: 'POST', path: '/api/events', desc: 'Receives tracking events (pixel key validated)' },
               { method: 'GET', path: '/api/install-guide', desc: 'Machine-readable install instructions (JSON)' },
-              { method: 'POST', path: '/api/sites', desc: 'Register a new site for tracking' },
             ].map((ep) => (
               <div key={ep.path} className="bg-[#0a0a0a] border border-white/5 rounded-xl p-5 flex items-center gap-4">
                 <span className={`text-[11px] font-mono font-bold uppercase px-2 py-1 rounded ${
@@ -152,7 +151,7 @@ window.nk('conversion', {
         {/* Footer */}
         <footer className="py-16 border-t border-white/5 text-center">
           <p className="text-[13px] text-[rgba(255,255,255,0.4)]">
-            Built for nik.co · Under 5KB · Zero dependencies · Privacy-first
+            Built for nik.co &middot; Under 3KB &middot; Zero dependencies &middot; Privacy-first
           </p>
         </footer>
       </main>

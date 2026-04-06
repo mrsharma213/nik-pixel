@@ -1,53 +1,20 @@
-import { getDb } from '@/lib/db';
 import Link from 'next/link';
-
-interface Site {
-  id: string;
-  domain: string;
-  name: string;
-  status: string;
-  created_at: string;
-}
-
-interface Referrer {
-  referrer: string;
-  count: number;
-}
+import { getOverviewStats } from '@/lib/queries';
+import { getDb } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
 export default async function DashboardOverview() {
+  const overview = await getOverviewStats();
   const sql = getDb();
+  const [siteCount] = await sql`SELECT COUNT(*) as count FROM sites`;
 
-  const [totalEventsTodayRow] = await sql`
-    SELECT COUNT(*) as count FROM events WHERE created_at >= CURRENT_DATE
-  `;
-
-  const [activeVisitorsRow] = await sql`
-    SELECT COUNT(DISTINCT visitor_id) as count FROM events WHERE created_at >= NOW() - INTERVAL '5 minutes'
-  `;
-
-  const [conversionRevenueRow] = await sql`
-    SELECT COALESCE(SUM(conversion_value), 0) as total FROM events
-    WHERE type = 'conversion' AND created_at >= CURRENT_DATE - INTERVAL '30 days'
-  `;
-
-  const topReferrers = await sql`
-    SELECT referrer, COUNT(*)::int as count FROM events
-    WHERE referrer != '' AND type = 'pageview' AND created_at >= CURRENT_DATE - INTERVAL '7 days'
-    GROUP BY referrer ORDER BY count DESC LIMIT 5
-  ` as Referrer[];
-
-  const approvedSites = await sql`
-    SELECT * FROM sites WHERE status = 'approved' ORDER BY created_at DESC
-  ` as Site[];
-
-  const [totalSitesRow] = await sql`SELECT COUNT(*) as count FROM sites`;
-
-  const totalEventsToday = Number(totalEventsTodayRow.count);
-  const activeVisitors = Number(activeVisitorsRow.count);
-  const conversionRevenue = Number(conversionRevenueRow.total);
-  const totalSites = Number(totalSitesRow.count);
+  const totalEventsToday = overview.totalEventsToday;
+  const activeVisitors = overview.activeVisitors;
+  const conversionRevenue = overview.conversionRevenue;
+  const totalSites = Number(siteCount.count);
+  const approvedSites = overview.approvedSites;
+  const topReferrers = overview.topReferrers;
 
   return (
     <div>
