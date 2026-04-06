@@ -1,65 +1,161 @@
-import Image from "next/image";
+import { CopyButton } from '@/components/CopyButton';
 
-export default function Home() {
+const SCRIPT_TAG = '<script src="https://pixel.nik.co/pixel.js" data-site="YOUR_SITE_ID"></script>';
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'Nik Sharma Analytics Pixel',
+            applicationCategory: 'WebApplication',
+            operatingSystem: 'Web',
+            description: 'Lightweight analytics pixel for tracking page views, conversions, and user behavior.',
+            url: 'https://pixel.nik.co',
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+            featureList: [
+              'Page view tracking', 'Session tracking', 'UTM parameter capture',
+              'Scroll depth tracking', 'Click tracking', 'Conversion tracking',
+              'Custom events API', 'Bounce detection', 'Return visitor detection',
+            ],
+          }),
+        }}
+      />
+
+      <nav className="sticky top-0 z-50 border-b border-white/5 backdrop-blur-md bg-black/80">
+        <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+          <span className="text-[15px] font-semibold tracking-tight text-white">pixel.nik.co</span>
+          <div className="flex items-center gap-6">
+            <a href="#install" className="text-[15px] text-[#a6a6a6] hover:text-white transition-colors">Install</a>
+            <a href="#features" className="text-[15px] text-[#a6a6a6] hover:text-white transition-colors">Features</a>
+            <a href="#api" className="text-[15px] text-[#a6a6a6] hover:text-white transition-colors">API</a>
+            <a href="/dashboard" className="px-5 py-2 bg-[#fbbf24] text-black font-medium text-[13px] rounded-full hover:bg-[#fcd34d] transition-colors">
+              Dashboard
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <main className="max-w-[720px] mx-auto px-6">
+        {/* Hero */}
+        <section className="pt-24 pb-16">
+          <h1 className="text-[56px] md:text-[72px] font-bold leading-[0.9] tracking-[-3.5px] text-white mb-6">
+            Nik Sharma<br />Analytics Pixel
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-[18px] text-[#a6a6a6] leading-relaxed max-w-[540px] tracking-[-0.01px]">
+            Lightweight, privacy-conscious analytics for any website. Track page views,
+            conversions, scroll depth, and user behavior with a single script tag.
+            Under 5KB. Zero dependencies.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
+
+        {/* Install */}
+        <section id="install" className="py-16 border-t border-white/5">
+          <h2 className="text-[32px] font-semibold tracking-[-1px] text-white mb-8">Installation</h2>
+
+          <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-6">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-[11px] font-medium uppercase tracking-[0.5px] text-[#a6a6a6]">
+                Step 1 — Add the script tag
+              </span>
+              <CopyButton text={SCRIPT_TAG} />
+            </div>
+            <code className="block text-[14px] font-mono text-[#fbbf24] bg-black/50 rounded-lg p-4 overflow-x-auto whitespace-pre">
+              {SCRIPT_TAG}
+            </code>
+            <p className="mt-4 text-[15px] text-[#a6a6a6] leading-relaxed">
+              Place this tag just before the closing <code className="text-white font-mono text-[13px]">&lt;/body&gt;</code> tag on every page you want to track.
+              Replace <code className="text-[#fbbf24] font-mono text-[13px]">YOUR_SITE_ID</code> with the ID provided after site approval.
+            </p>
+          </div>
+
+          <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-6 mt-4">
+            <span className="text-[11px] font-medium uppercase tracking-[0.5px] text-[#a6a6a6] block mb-4">
+              Step 2 — Track custom events (optional)
+            </span>
+            <code className="block text-[14px] font-mono text-white bg-black/50 rounded-lg p-4 overflow-x-auto whitespace-pre">
+{`// Track a custom event
+window.nk('event', 'signup_click', { plan: 'pro' });
+
+// Track a conversion
+window.nk('conversion', {
+  value: 49.99,
+  currency: 'USD',
+  order_id: '12345'
+});`}
+            </code>
+          </div>
+
+          <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-6 mt-4">
+            <span className="text-[11px] font-medium uppercase tracking-[0.5px] text-[#a6a6a6] block mb-4">
+              Step 3 — Track CTA clicks (optional)
+            </span>
+            <code className="block text-[14px] font-mono text-white bg-black/50 rounded-lg p-4 overflow-x-auto whitespace-pre">
+{`<!-- Add data-nk-track to any element -->
+<button data-nk-track="buy_now">Buy Now</button>
+<a href="/pricing" data-nk-track="pricing_link">View Pricing</a>`}
+            </code>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section id="features" className="py-16 border-t border-white/5">
+          <h2 className="text-[32px] font-semibold tracking-[-1px] text-white mb-8">What it tracks</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { title: 'Page Views', desc: 'URL, referrer, title — every visit captured' },
+              { title: 'Sessions', desc: 'Anonymous visitor IDs, session management' },
+              { title: 'UTM Parameters', desc: 'Source, medium, campaign, term, content' },
+              { title: 'Scroll Depth', desc: '25%, 50%, 75%, 100% thresholds tracked' },
+              { title: 'Time on Page', desc: 'Heartbeat every 5 seconds for accuracy' },
+              { title: 'Click Tracking', desc: 'Outbound links and data-nk-track CTAs' },
+              { title: 'Conversions', desc: 'Revenue, currency, order ID — the money data' },
+              { title: 'Device Info', desc: 'Type, browser, OS, screen resolution' },
+              { title: 'Bounce Detection', desc: 'Know who left without engaging' },
+              { title: 'Return Visitors', desc: 'New vs returning, automatically detected' },
+            ].map((f) => (
+              <div key={f.title} className="bg-[#0a0a0a] border border-white/5 rounded-xl p-5">
+                <h3 className="text-[15px] font-semibold text-white mb-1">{f.title}</h3>
+                <p className="text-[13px] text-[#a6a6a6]">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* API */}
+        <section id="api" className="py-16 border-t border-white/5">
+          <h2 className="text-[32px] font-semibold tracking-[-1px] text-white mb-8">API Endpoints</h2>
+          <div className="space-y-4">
+            {[
+              { method: 'GET', path: '/api/pixel.js', desc: 'Serves the tracking script' },
+              { method: 'POST', path: '/api/events', desc: 'Receives tracking events' },
+              { method: 'GET', path: '/api/install-guide', desc: 'Machine-readable install instructions (JSON)' },
+              { method: 'POST', path: '/api/sites', desc: 'Register a new site for tracking' },
+            ].map((ep) => (
+              <div key={ep.path} className="bg-[#0a0a0a] border border-white/5 rounded-xl p-5 flex items-center gap-4">
+                <span className={`text-[11px] font-mono font-bold uppercase px-2 py-1 rounded ${
+                  ep.method === 'GET' ? 'bg-[rgba(34,197,94,0.15)] text-[#22c55e]' : 'bg-[rgba(251,191,36,0.15)] text-[#fbbf24]'
+                }`}>
+                  {ep.method}
+                </span>
+                <code className="text-[14px] font-mono text-white">{ep.path}</code>
+                <span className="text-[13px] text-[#a6a6a6] ml-auto hidden sm:block">{ep.desc}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-16 border-t border-white/5 text-center">
+          <p className="text-[13px] text-[rgba(255,255,255,0.4)]">
+            Built for nik.co · Under 5KB · Zero dependencies · Privacy-first
+          </p>
+        </footer>
       </main>
-    </div>
+    </>
   );
 }
