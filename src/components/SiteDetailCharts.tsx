@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   BarChart, Bar, PieChart, Pie, Cell,
@@ -28,6 +29,13 @@ interface Stats {
 }
 
 const DEVICE_COLORS = ['#fbbf24', '#ffffff', '#a6a6a6'];
+const DATE_RANGES = [
+  { label: '24h', days: 1 },
+  { label: '7d', days: 7 },
+  { label: '14d', days: 14 },
+  { label: '30d', days: 30 },
+  { label: '90d', days: 90 },
+];
 
 function formatTime(seconds: number): string {
   if (seconds < 60) return `${seconds}s`;
@@ -36,9 +44,34 @@ function formatTime(seconds: number): string {
   return `${m}m ${s}s`;
 }
 
-export function SiteDetailCharts({ stats }: { stats: Stats }) {
+export function SiteDetailCharts({ stats, siteId, currentDays }: { stats: Stats; siteId: string; currentDays: number }) {
+  const router = useRouter();
+
+  const handleDateChange = (days: number) => {
+    router.push(`/dashboard/${siteId}?days=${days}`);
+  };
+
   return (
     <div className="space-y-8">
+      {/* Date Range Picker */}
+      <div className="flex items-center gap-2">
+        <span className="text-[11px] font-medium uppercase tracking-[0.5px] text-[#a6a6a6] mr-2">Period</span>
+        {DATE_RANGES.map((r) => (
+          <button
+            key={r.days}
+            onClick={() => handleDateChange(r.days)}
+            className="px-3 py-1.5 text-[13px] font-medium rounded-full transition-colors cursor-pointer"
+            style={{
+              background: currentDays === r.days ? 'rgba(251, 191, 36, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+              color: currentDays === r.days ? '#fbbf24' : '#a6a6a6',
+              border: currentDays === r.days ? '1px solid rgba(251, 191, 36, 0.3)' : '1px solid transparent',
+            }}
+          >
+            {r.label}
+          </button>
+        ))}
+      </div>
+
       {/* Stats Row */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         <MiniStat label="Bounce Rate" value={`${stats.bounceRate}%`} />
@@ -57,7 +90,7 @@ export function SiteDetailCharts({ stats }: { stats: Stats }) {
       </div>
 
       {/* Page Views Chart */}
-      <Card title="Page Views (7 days)">
+      <Card title={`Page Views (${currentDays}d)`}>
         {stats.pageviewsOverTime.length === 0 ? (
           <EmptyState />
         ) : (

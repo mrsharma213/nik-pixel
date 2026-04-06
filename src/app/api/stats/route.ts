@@ -1,7 +1,11 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getDb } from '@/lib/db';
+import { requireAuth } from '@/lib/auth';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = requireAuth(request);
+  if (authError) return authError;
+
   try {
     const sql = getDb();
 
@@ -29,10 +33,10 @@ export async function GET() {
     `;
 
     return NextResponse.json({
-      totalEventsToday: totalEventsToday.count,
-      activeVisitors: activeVisitors.count,
+      totalEventsToday: Number(totalEventsToday.count),
+      activeVisitors: Number(activeVisitors.count),
       topReferrers,
-      conversionRevenue: conversionRevenue.total,
+      conversionRevenue: Number(conversionRevenue.total),
       approvedSites,
     });
   } catch (error) {
