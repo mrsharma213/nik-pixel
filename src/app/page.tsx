@@ -167,6 +167,7 @@ export default function HomePage() {
           <p style={{ color: "#666", fontSize: "14px", margin: "0" }}>
             5-minute setup • No credit card required • Used by 100+ DTC brands
           </p>
+          {/* Force deployment: 2026-04-08 15:42 */}
         </div>
       </div>
     </div>
