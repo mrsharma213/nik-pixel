@@ -13,6 +13,7 @@ export async function isAuthenticated(): Promise<boolean> {
 
 /**
  * Validate a raw admin key string (used during login).
+ * Demo password: 1234
  */
 export function validateAdminKey(key: string): boolean {
   // Demo password is always 1234
