@@ -2,7 +2,7 @@ import { CopyButton } from '@/components/CopyButton';
 
 const SCRIPT_TAG = '<script src="https://pixel.sharmlytics.com/pixel.js" data-site="YOUR_SITE_ID"></script>';
 
-export default function HomePage() {
+export default function MarketingHomePage() {
   return (
     <>
       <script
@@ -64,9 +64,9 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <a href="/dashboard" className="px-8 py-4 bg-[#fbbf24] text-black font-semibold text-[16px] rounded-lg hover:bg-[#fcd34d] transition-colors">
+              <button className="px-8 py-4 bg-[#fbbf24] text-black font-semibold text-[16px] rounded-lg hover:bg-[#fcd34d] transition-colors">
                 Start Free Trial
-              </a>
+              </button>
               <a href="#case-study" className="px-8 py-4 border border-white/10 text-white font-medium text-[16px] rounded-lg hover:border-[#fbbf24] transition-colors">
                 See Case Study
               </a>
@@ -399,9 +399,9 @@ export default function HomePage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <a href="/dashboard" className="px-8 py-4 bg-[#fbbf24] text-black font-semibold text-[16px] rounded-lg hover:bg-[#fcd34d] transition-colors">
+              <button className="px-8 py-4 bg-[#fbbf24] text-black font-semibold text-[16px] rounded-lg hover:bg-[#fcd34d] transition-colors">
                 Start Free Trial
-              </a>
+              </button>
               <a href="/dashboard" className="px-8 py-4 border border-white/20 text-white font-medium text-[16px] rounded-lg hover:border-[#fbbf24] transition-colors">
                 View Demo Dashboard
               </a>
