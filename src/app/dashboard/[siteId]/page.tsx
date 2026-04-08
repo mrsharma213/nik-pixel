@@ -45,7 +45,7 @@ export default async function SiteDetailPage({ params, searchParams }: { params:
           <span className="text-[11px] font-mono text-[rgba(255,255,255,0.4)]">Key: {site.pixel_key}</span>
         </div>
         <code className="block text-[13px] font-mono text-[#fbbf24] bg-black/50 rounded-lg p-3 overflow-x-auto whitespace-pre">
-          {`<script src="https://pixel.nik.co/pixel.js" data-site="${site.id}"></script>`}
+          {`<script src="https://sharmlytics.com/pixel.js" data-site="${site.id}"></script>`}
         </code>
       </div>
 

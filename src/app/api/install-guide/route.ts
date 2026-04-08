@@ -11,7 +11,7 @@ export async function GET() {
         {
           step: 1,
           description: 'Add the following script tag to your HTML, just before the closing </body> tag.',
-          code: '<script src="https://pixel.nik.co/pixel.js" data-site="YOUR_SITE_ID"></script>',
+          code: '<script src="https://sharmlytics.com/pixel.js" data-site="YOUR_SITE_ID"></script>',
           notes: 'Replace YOUR_SITE_ID with the site ID provided after approval.',
         },
         {

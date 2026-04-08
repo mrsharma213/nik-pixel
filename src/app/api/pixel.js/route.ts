@@ -4,7 +4,7 @@ import { generatePixelScript } from '@/lib/pixel-script';
 export async function GET(request: NextRequest) {
   const origin = request.headers.get('origin') || '*';
   const proto = request.headers.get('x-forwarded-proto') || 'https';
-  const host = request.headers.get('host') || 'pixel.nik.co';
+  const host = request.headers.get('host') || 'sharmlytics.com';
   const baseUrl = `${proto}://${host}`;
 
   const script = generatePixelScript(baseUrl);

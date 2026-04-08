@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Nik Sharma Analytics Pixel',
-  description: 'Lightweight analytics pixel for tracking page views, conversions, and user behavior across nik.co properties.',
+  title: 'Sharmlytics — DTC Analytics Platform',
+  description: 'Purpose-built analytics for DTC brands. Track customer journeys, conversions, and behavior patterns that matter for e-commerce growth.',
 };
 
 export default function RootLayout({

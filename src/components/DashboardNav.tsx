@@ -25,7 +25,7 @@ export function DashboardNav() {
       <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="text-[15px] font-semibold tracking-tight text-white hover:text-[#fbbf24] transition-colors">
-            pixel.nik.co
+            sharmlytics.com
           </Link>
           <div className="flex items-center gap-1">
             {NAV_ITEMS.map((item) => {

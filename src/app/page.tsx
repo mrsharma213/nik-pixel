@@ -1,6 +1,6 @@
 import { CopyButton } from '@/components/CopyButton';
 
-const SCRIPT_TAG = '<script src="https://pixel.nik.co/pixel.js" data-site="YOUR_SITE_ID"></script>';
+const SCRIPT_TAG = '<script src="https://pixel.sharmlytics.com/pixel.js" data-site="YOUR_SITE_ID"></script>';
 
 export default function HomePage() {
   return (
@@ -11,11 +11,11 @@ export default function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'SoftwareApplication',
-            name: 'Nik Sharma Analytics Pixel',
+            name: 'Sharmlytics',
             applicationCategory: 'WebApplication',
             operatingSystem: 'Web',
-            description: 'Lightweight analytics pixel for tracking page views, conversions, and user behavior.',
-            url: 'https://pixel.nik.co',
+            description: 'DTC-focused analytics platform for tracking page views, conversions, and customer behavior.',
+            url: 'https://sharmlytics.com',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             featureList: [
               'Page view tracking', 'Session tracking', 'UTM parameter capture',
@@ -28,7 +28,7 @@ export default function HomePage() {
 
       <nav className="sticky top-0 z-50 border-b border-white/5 backdrop-blur-md bg-black/80">
         <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="text-[15px] font-semibold tracking-tight text-white">pixel.nik.co</span>
+          <span className="text-[15px] font-semibold tracking-tight text-white">sharmlytics.com</span>
           <div className="flex items-center gap-6">
             <a href="#install" className="text-[15px] text-[#a6a6a6] hover:text-white transition-colors">Install</a>
             <a href="#features" className="text-[15px] text-[#a6a6a6] hover:text-white transition-colors">Features</a>
@@ -44,13 +44,64 @@ export default function HomePage() {
         {/* Hero */}
         <section className="pt-24 pb-16">
           <h1 className="text-[56px] md:text-[72px] font-bold leading-[0.9] tracking-[-3.5px] text-white mb-6">
-            Analytics Pixel<br />for Growth Teams
+            Sharmlytics<br />DTC Analytics
           </h1>
           <p className="text-[18px] text-[#a6a6a6] leading-relaxed max-w-[540px] tracking-[-0.01px]">
-            Lightweight, privacy-conscious analytics for any website. Track page views,
-            conversions, scroll depth, and user behavior with a single script tag.
-            Under 3KB. Zero dependencies.
+            Purpose-built analytics for DTC brands. Track customer journeys, conversions, 
+            and behavior patterns that actually matter for e-commerce growth.
+            Simple setup, powerful insights.
           </p>
+        </section>
+
+        {/* Founder */}
+        <section className="py-16 border-t border-white/5">
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            <div className="flex-shrink-0">
+              <img 
+                src="https://pbs.twimg.com/profile_images/1737179558843244544/Kw-Y4z7F_400x400.jpg" 
+                alt="Nik Sharma"
+                className="w-24 h-24 rounded-full border border-white/10"
+              />
+            </div>
+            <div className="flex-1">
+              <h2 className="text-[24px] font-semibold tracking-[-0.5px] text-white mb-4">
+                Built by Nik Sharma
+              </h2>
+              <p className="text-[16px] text-[#a6a6a6] leading-relaxed mb-4">
+                Former head of growth at Athletic Greens (AG1) where I scaled the brand from $100M to $300M+ ARR. 
+                I've helped 100+ DTC brands optimize their funnels, improve attribution, and scale profitably 
+                in the post-iOS 14.5 era.
+              </p>
+              <p className="text-[16px] text-[#a6a6a6] leading-relaxed mb-6">
+                After seeing too many founders struggle with generic analytics tools that don't understand 
+                DTC operations, I built Sharmlytics — the analytics platform I wish I had when scaling brands.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a 
+                  href="https://twitter.com/mrsharma" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[14px] text-[#a6a6a6] hover:text-white transition-colors"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  @mrsharma
+                </a>
+                <a 
+                  href="https://sharma.co" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[14px] text-[#a6a6a6] hover:text-white transition-colors"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  sharma.co
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Install */}
@@ -151,7 +202,7 @@ window.nk('conversion', {
         {/* Footer */}
         <footer className="py-16 border-t border-white/5 text-center">
           <p className="text-[13px] text-[rgba(255,255,255,0.4)]">
-            Built for nik.co &middot; Under 3KB &middot; Zero dependencies &middot; Privacy-first
+            Built for DTC operators &middot; Under 3KB &middot; Zero dependencies &middot; Privacy-first
           </p>
         </footer>
       </main>
