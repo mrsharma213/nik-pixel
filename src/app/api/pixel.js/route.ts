@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generatePixelScript } from '@/lib/pixel-script';
+import { generateEnhancedPixelScript } from '@/lib/enhanced-pixel-script';
 
 export async function GET(request: NextRequest) {
   const origin = request.headers.get('origin') || '*';
@@ -7,7 +8,8 @@ export async function GET(request: NextRequest) {
   const host = request.headers.get('host') || 'sharmlytics.com';
   const baseUrl = `${proto}://${host}`;
 
-  const script = generatePixelScript(baseUrl);
+  // Use enhanced pixel script with custom events support
+  const script = generateEnhancedPixelScript(baseUrl);
 
   return new NextResponse(script, {
     headers: {

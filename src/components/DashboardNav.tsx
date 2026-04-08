@@ -7,6 +7,7 @@ import { useState } from 'react';
 const NAV_ITEMS = [
   { href: '/dashboard', label: 'Overview' },
   { href: '/dashboard/sites', label: 'Sites' },
+  { href: '/dashboard/events', label: 'Events' },
 ];
 
 export function DashboardNav() {
