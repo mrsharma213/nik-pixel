@@ -7,16 +7,16 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function isAuthenticated(): Promise<boolean> {
   const cookieStore = await cookies();
   const adminKey = cookieStore.get('admin_key')?.value;
-  const validKey = process.env.ADMIN_KEY || '1234'; // Demo default
-  return !!adminKey && adminKey === validKey;
+  // Demo password is always 1234
+  return !!adminKey && adminKey === '1234';
 }
 
 /**
  * Validate a raw admin key string (used during login).
  */
 export function validateAdminKey(key: string): boolean {
-  const validKey = process.env.ADMIN_KEY || '1234'; // Demo default
-  return !!key && key === validKey;
+  // Demo password is always 1234
+  return !!key && key === '1234';
 }
 
 /**
@@ -26,8 +26,8 @@ export function validateAdminKey(key: string): boolean {
  */
 export function requireAuth(request: NextRequest): NextResponse | null {
   const adminKey = request.cookies.get('admin_key')?.value;
-  const validKey = process.env.ADMIN_KEY || '1234'; // Demo default
-  if (!adminKey || adminKey !== validKey) {
+  // Demo password is always 1234
+  if (!adminKey || adminKey !== '1234') {
     return NextResponse.json(
       { error: 'Unauthorized' },
       { status: 401 }
