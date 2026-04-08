@@ -204,6 +204,7 @@ window.nk('conversion', {
           <p className="text-[13px] text-[rgba(255,255,255,0.4)]">
             Built for DTC operators &middot; Under 3KB &middot; Zero dependencies &middot; Privacy-first
           </p>
+          {/* Force deployment: 2026-04-08-15:38 */}
         </footer>
       </main>
     </>
