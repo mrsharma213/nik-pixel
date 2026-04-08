@@ -2,248 +2,117 @@
 
 export default function HomePage() {
   return (
-    <>
-      <style jsx global>{`
-        body { 
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-          background: #000 !important; 
-          color: #fff !important; 
-          min-height: 100vh; 
-          display: flex; 
-          align-items: center; 
-          justify-content: center; 
-          padding: 20px; 
-          text-align: center;
-          margin: 0;
-        }
-        .container { 
-          max-width: 900px; 
-          margin: 0 auto; 
-        }
-        .avatar { 
-          width: 120px; 
-          height: 120px; 
-          border-radius: 50%; 
-          border: 3px solid #333; 
-          margin: 0 auto 40px; 
-        }
-        .title { 
-          font-size: 64px; 
-          font-weight: bold; 
-          margin: 0 0 30px 0; 
-          line-height: 1.1; 
-          letter-spacing: -2px; 
-        }
-        .subtitle { 
-          font-size: 28px; 
-          color: #888; 
-          margin: 0 0 40px 0; 
-          line-height: 1.3; 
-        }
-        .description { 
-          font-size: 20px; 
-          line-height: 1.6; 
-          color: #ccc; 
-          margin-bottom: 50px; 
-        }
-        .benefits { 
-          display: grid; 
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-          gap: 30px; 
-          margin-bottom: 60px; 
-        }
-        .benefit { 
-          background: #111; 
-          padding: 25px; 
-          border-radius: 10px; 
-        }
-        .benefit h4 { 
-          color: #fbbf24; 
-          margin: 0 0 10px 0; 
-          font-size: 16px; 
-          font-weight: 600; 
-        }
-        .benefit p { 
-          color: #999; 
-          margin: 0; 
-          font-size: 14px; 
-          line-height: 1.4; 
-        }
-        .founder { 
-          background: #111; 
-          padding: 40px; 
-          border-radius: 15px; 
-          margin-bottom: 50px; 
-          text-align: left; 
-        }
-        .founder h3 { 
-          color: #fff; 
-          margin: 0 0 20px 0; 
-          font-size: 24px; 
-          text-align: center; 
-        }
-        .founder p { 
-          color: #aaa; 
-          margin: 0 0 20px 0; 
-          font-size: 18px; 
-          line-height: 1.5; 
-        }
-        .founder p:last-of-type { 
-          margin-bottom: 25px; 
-        }
-        .social { 
-          display: flex; 
-          justify-content: center; 
-          gap: 30px; 
-        }
-        .social a { 
-          color: #888; 
-          text-decoration: none; 
-          font-size: 16px; 
-        }
-        .install { 
-          background: #111; 
-          padding: 30px; 
-          border-radius: 10px; 
-          margin-bottom: 40px; 
-          text-align: left; 
-        }
-        .install h4 { 
-          color: #fbbf24; 
-          margin: 0 0 15px 0; 
-          font-size: 16px; 
-          text-align: center; 
-        }
-        .install code { 
-          display: block; 
-          background: #000; 
-          padding: 20px; 
-          border-radius: 8px; 
-          font-size: 14px; 
-          font-family: Monaco, Menlo, monospace; 
-          color: #fbbf24; 
-          overflow-x: auto;
-        }
-        .install p { 
-          color: #999; 
-          font-size: 14px; 
-          margin: 15px 0 0 0; 
-          text-align: center; 
-        }
-        .ctas { 
-          margin-bottom: 40px; 
-        }
-        .ctas a { 
-          display: inline-block; 
-          padding: 18px 40px; 
-          text-decoration: none; 
-          border-radius: 10px; 
-          font-weight: bold; 
-          font-size: 18px; 
-          margin-right: 20px;
-        }
-        .primary { 
-          background: #fbbf24; 
-          color: #000; 
-        }
-        .secondary { 
-          background: transparent; 
-          color: #fff; 
-          border: 2px solid #333; 
-        }
-        .footer { 
-          color: #666; 
-          font-size: 14px; 
-        }
-      `}</style>
-      
-      <div className="container">
+    <div className="bg-black text-white min-h-screen flex items-center justify-center p-5 text-center">
+      <div className="max-w-4xl mx-auto">
         {/* Avatar */}
         <img 
           src="https://pbs.twimg.com/profile_images/1737179558843244544/Kw-Y4z7F_400x400.jpg" 
           alt="Nik Sharma" 
-          className="avatar"
+          className="w-32 h-32 rounded-full border-4 border-gray-700 mx-auto mb-10"
         />
         
         {/* Main Title */}
-        <h1 className="title">Sharmlytics</h1>
+        <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
+          Sharmlytics
+        </h1>
         
         {/* Subtitle */}
-        <p className="subtitle">
+        <p className="text-2xl md:text-3xl text-gray-400 mb-12 leading-relaxed">
           DTC analytics that actually understand<br />
           e-commerce operations
         </p>
         
-        {/* Main Description */}
-        <div className="description">
-          <p>
+        {/* Description */}
+        <div className="text-xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed">
+          <p className="mb-6">
             Smart event tracking for cart thresholds, quiz completions, and lead capture. 
             Automatically fire the right Meta, Google, and TikTok events without manual pixel management.
           </p>
-          <br />
           <p>
             One script replaces all your tracking pixels. See complete attribution even when iOS blocks traditional tracking.
           </p>
         </div>
 
-        {/* Key Benefits */}
-        <div className="benefits">
-          <div className="benefit">
-            <h4>Cart Value Events</h4>
-            <p>Auto-trigger high-value events at $50, $100, $150+ cart thresholds</p>
+        {/* Key Benefits Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="bg-gray-900 p-6 rounded-lg">
+            <h4 className="text-yellow-400 font-semibold mb-3 text-lg">Cart Value Events</h4>
+            <p className="text-gray-400 text-sm">Auto-trigger high-value events at $50, $100, $150+ cart thresholds</p>
           </div>
-          <div className="benefit">
-            <h4>Quiz & Lead Tracking</h4>
-            <p>Track quiz completions, email signups, phone captures automatically</p>
+          <div className="bg-gray-900 p-6 rounded-lg">
+            <h4 className="text-yellow-400 font-semibold mb-3 text-lg">Quiz & Lead Tracking</h4>
+            <p className="text-gray-400 text-sm">Track quiz completions, email signups, phone captures automatically</p>
           </div>
-          <div className="benefit">
-            <h4>5-Minute Setup</h4>
-            <p>One script tag. Works with Shopify, custom checkouts, any platform</p>
+          <div className="bg-gray-900 p-6 rounded-lg">
+            <h4 className="text-yellow-400 font-semibold mb-3 text-lg">5-Minute Setup</h4>
+            <p className="text-gray-400 text-sm">One script tag. Works with Shopify, custom checkouts, any platform</p>
           </div>
         </div>
         
         {/* Founder Info */}
-        <div className="founder">
-          <h3>Built by Nik Sharma</h3>
-          <p>
-            Former head of growth at <strong>Athletic Greens (AG1)</strong> where I scaled the brand from $100M to $300M+ ARR. 
+        <div className="bg-gray-900 p-10 rounded-lg mb-16 text-left max-w-3xl mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-6">Built by Nik Sharma</h3>
+          <p className="text-gray-300 mb-4 text-lg leading-relaxed">
+            Former head of growth at <strong className="text-white">Athletic Greens (AG1)</strong> where I scaled the brand from $100M to $300M+ ARR. 
             I've helped 100+ DTC brands optimize their funnels, improve attribution, and scale profitably in the post-iOS 14.5 era.
           </p>
-          <p>
+          <p className="text-gray-300 mb-6 text-lg leading-relaxed">
             After seeing too many founders struggle with broken attribution and generic analytics tools, 
             I built Sharmlytics — the analytics platform I wish I had when scaling brands.
           </p>
           
-          <div className="social">
-            <a href="https://twitter.com/mrsharma" target="_blank" rel="noopener noreferrer">
+          <div className="flex justify-center space-x-8">
+            <a 
+              href="https://twitter.com/mrsharma" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               𝕏 @mrsharma
             </a>
-            <a href="https://sharma.co" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://sharma.co" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               ✓ sharma.co
             </a>
           </div>
         </div>
 
         {/* Install Code Block */}
-        <div className="install">
-          <h4>Complete Setup</h4>
-          <code>
-            &lt;script src="https://sharmlytics.com/pixel.js" data-site="YOUR_SITE_ID"&gt;&lt;/script&gt;
-          </code>
-          <p>That's it. One script automatically manages all your pixel events.</p>
+        <div className="bg-gray-900 p-8 rounded-lg mb-12 text-left max-w-2xl mx-auto">
+          <h4 className="text-yellow-400 font-semibold text-center mb-4 text-lg">Complete Setup</h4>
+          <div className="bg-black p-4 rounded font-mono text-sm text-yellow-400 overflow-x-auto">
+            {'<script src="https://sharmlytics.com/pixel.js" data-site="YOUR_SITE_ID"></script>'}
+          </div>
+          <p className="text-gray-400 text-sm text-center mt-4">
+            That's it. One script automatically manages all your pixel events.
+          </p>
         </div>
         
         {/* CTAs */}
-        <div className="ctas">
-          <a href="/dashboard" className="primary">Start Free Trial</a>
-          <a href="/dashboard" className="secondary">View Demo</a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <a 
+            href="/dashboard" 
+            className="inline-block bg-yellow-400 text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors"
+          >
+            Start Free Trial
+          </a>
+          <a 
+            href="/dashboard" 
+            className="inline-block bg-transparent text-white px-10 py-4 rounded-lg font-medium text-lg border-2 border-gray-600 hover:border-yellow-400 transition-colors"
+          >
+            View Demo
+          </a>
         </div>
 
         {/* Footer note */}
-        <p className="footer">
+        <p className="text-gray-500 text-sm">
           5-minute setup • No credit card required • Used by 100+ DTC brands
         </p>
       </div>
-    </>
+    </div>
   );
 }
